@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.header .logo_box_logo {
+    width: 1400px;
+    height: 926px;
+    padding: 33px 0 0 50px;
+    padding-right: 200px;
+    float: left;
+}
+
+.logo_title{
+	border-radius: 10px;
+	height: 35px;
+	background: #edecf391;
+}
+
+.navigation_table{
+	border-radius: 10px;
+	height: 890px;   
+	width: 200px;    
+	background: #7d7878b8; 
+}
+
+.logo_span{
+    font-size: 23px;
+    color: #105052;
+}
+.logo_divspan{
+	border-radius: 10px;
+    width: 200px;
+    /* background: #847777; */
+}
+
+.logo_hr{
+	margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.navigation_commodity{
+	  border-radius: 10px;
+	  height: 40px;
+	  background: #0b0c0cc2;
+}
+.navigation_span{
+	font-size: 20px;
+	margin-left: 63px;
+	color: aliceblue;
+}
+   

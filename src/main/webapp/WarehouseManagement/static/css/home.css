@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.title{
+	font-size: 28px;
+	color: #f3f6f8;
+}
+
+.titles{
+	font-size: -webkit-xxx-large;
+    color: #f3f6f8;
+}
+
+p {
+	color: #fff;
+	font-size: 15px;
+	text-shadow: 0 0 10px #529DFF;
+}
+
+.a_title{
+	    height: 50%;
+}
+
+a:link { 
+color:#ffffff; 
+text-decoration:none ; 
+} 
+a:visited { 
+color:#ffffff; 
+text-decoration:none; 
+} 
+a:hover { 
+color:#ffffff; 
+text-decoration:none; 
+} 
+a:active { 
+color:#ffffff; 
+text-decoration:none; 
+} 
+
+
+

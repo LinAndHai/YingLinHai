@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<!-- 配置Spring的容器 -->
+	<!-- ApplicationContext的配置文件 设置spring容器加载配置文件路径 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
+	<!-- 用于加载上下文的监听器 加载spring容器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+	<!--SpringMvc前端控制器 拦截所有请求 -->
+
+	<servlet>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- SpringMVC的过滤器 过滤器一定要配置在所有的配置的前面 因为要先过滤 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceRequestEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceResponseEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 使用Rest风格的URI -->
+	<!-- 配置 org.springframework.web.filter.HiddenHttpMethodFilter: 可以把 POST 
+		请求转为 DELETE 或 POST 请求 -->
+	<!--  
+		使用Rest风格的URI
+		1，使用POST请求属于： 新增    /链接名     POST
+		2，使用PUT请求属于： 修改     /链接名/参数  PUT   
+		3，使用delete请求属于 ：删除    /链接名/参数   DELETE 
+		4，使用GET请求属于：查询    /链接名/参数    GET
+		
+		5，主要：在使用PUT请求和DELETE请求 ，时要先使用POST请求，后加入隐藏域 来使用比如
+		<input type='hidden'  name='_method' value = "DELETE或者是PUT">
+		6，注意:隐藏域的name要使用 ‘_method’这个NAME来命名
+			 -->
+	<filter>
+		<filter-name>HiddenHttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>HiddenHttpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+
+</web-app>
